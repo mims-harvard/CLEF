@@ -2,7 +2,7 @@
 
 **Authors**:
 - [Michelle M. Li](http://michellemli.com)
-- [Kevin Li]()
+- [Kevin Li](https://www.linkedin.com/in/kevinli5941/)
 - [Yasha Ektefaie](https://www.yashaektefaie.com)
 - [Shvat Messica](https://www.linkedin.com/in/shvatmessica/)
 - [Marinka Zitnik](http://zitniklab.hms.harvard.edu)

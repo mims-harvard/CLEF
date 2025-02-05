@@ -18,3 +18,8 @@ We develop CLEF, a controllable sequence editing approach for instance-wise coun
 <p align="center">
 <img src="img/clef_overview.png?raw=true" width="700" >
 </p>
+
+
+## Questions
+
+Please leave a Github issue or contact Michelle Li at michelleli@g.harvard.edu.

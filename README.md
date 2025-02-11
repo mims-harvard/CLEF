@@ -20,6 +20,25 @@ We develop CLEF, a controllable sequence editing approach for instance-wise coun
 </p>
 
 
+## Installation and Setup
+
+### :one: Download the Repo
+
+First, clone the GitHub repository:
+
+```
+git clone https://github.com/mims-harvard/CLEF
+cd CLEF
+```
+
+### :two: Set Up Environment
+
+This codebase leverages Python, Pytorch, etc. To create an environment with all of the required packages, please ensure that [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) is installed and then execute the commands:
+
+```
+conda env create -f environment.yml
+conda activate clef_env
+```
 
 ## Additional Resources
 

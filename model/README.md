@@ -58,7 +58,9 @@ How to use each flag (in addition to the flags for training):
 
 ## Baselines
 
-To run baseline models with the sequence encoder ONLY, simply add the flag `--nconcepts 0` to above commands.
+To run baseline models with the sequence encoder ONLY, simply add the flag `--nconcepts 0` (int) to the above commands.
+
+To run the SimpleLinear ablation, simply add the flag `--concept_ones` (bool) to the above commands (no training is required).
 
 To run the traditional time series VAR model, run the script `baseline_arima.py`
 ```

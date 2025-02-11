@@ -15,7 +15,7 @@ python -u train.py \
 How to use each flag:
 - Use the `--data_type` (str) flag to specify the type of data to run CLEF on. Options for `${data_type}` are `cell` and `patient`
 - Use the `--split` (str) flag to specify the type of data split. Options for `${split}` are `state` (for cellular trajectories) and `patient` (for patient trajectories)
-- Use the `--seq_encoder` (str) flag to specify the sequence encoder. Options for `${seq_encoder}` are `transformer`, `xlstm`, and `moment`
+- Use the `--seq_encoder` (str) flag to specify the sequence encoder. Options for `${seq_encoder}` are `transformer`, `xlstm`, and `moment` (Note: `moment_utils.py` loads the pretrained model checkpoint, so there is no need to pre-download it)
 - Use the `--best` flag (bool) to use the best hyperparameters (as defined in the paper)
 
 

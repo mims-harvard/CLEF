@@ -56,7 +56,7 @@ How to use each flag (in addition to the flags for training):
 - Use the `--edit` (bool) flag to run editing
 
 
-## Baselines
+## Ablations \& Baselines
 
 To run baseline models with the sequence encoder ONLY, simply add the flag `--nconcepts 0` (int) to the above commands.
 

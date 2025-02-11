@@ -20,6 +20,22 @@ We develop CLEF, a controllable sequence editing approach for instance-wise coun
 </p>
 
 
+
+## Additional Resources
+
+- [Paper](https://arxiv.org/abs/2502.03569)
+- [Project Website (Coming Soon)]()
+
+```
+@article{li2025clef,
+  title={Controllable Sequence Editing for Counterfactual Generation},
+  author={Li, Michelle M and Li, Kevin and Ektefaie, Yasha and Messica, Shvat and Zitnik, Marinka},
+  journal={arXiv:2502.03569},
+  year={2025}
+}
+```
+
+
 ## Questions
 
 Please leave a Github issue or contact Michelle Li at michelleli@g.harvard.edu.

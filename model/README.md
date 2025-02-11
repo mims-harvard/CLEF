@@ -28,12 +28,14 @@ python -u train.py \
        --batch_sz ${batch_sz} \
        --seed ${seed} --save_prefix "${data_type}_${seq_encoder}_seed=${seed}_" \
        --best --save_preds \
-       --resume ${ckpt}
+       --resume ${ckpt} --inference
 ```
 
 How to use each flag (in addition to the flags for training):
 - Use the `--save_preds` flag (boolean) to save the model predictions
 - Use the `--resume` flag to specify the model checkpoint with which to run inference
+- Use the `--inference` flag (boolean) to run inference
+- Use the `--time_skip` flag (boolean) to run delayed sequence editing
 
 
 ## Edit
@@ -47,5 +49,7 @@ python -u edit.py \
        --edit --best --save_preds \
        --resume ${ckpt}
 ```
-How to use each flag (in addition to the flags for inference):
+How to use each flag (in addition to the flags for training):
+- Use the `--save_preds` flag (boolean) to save the model predictions
+- Use the `--resume` flag to specify the model checkpoint with which to run inference
 - Use the `--edit` flag (boolean) to run editing

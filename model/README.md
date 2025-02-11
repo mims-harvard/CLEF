@@ -69,6 +69,6 @@ python -u baseline_arima.py \
 ```
 
 How to use each flag:
-- Use the `--data_type` (str) flag to specify the type of data to run the baseline model on. Options for `${data_type}` are `cell` and `patient`
+- Use the `--data_type` (str) flag to specify the type of data to run VAR on. Options for `${data_type}` are `cell` and `patient`
 - Use the `--split` (str) flag to specify the type of data split. Options for `${split}` are `state` (for cellular trajectories) and `patient` (for patient trajectories)
 - Use the `--time_skip` (bool) flag to run delayed sequence editing

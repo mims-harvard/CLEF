@@ -46,8 +46,8 @@ python -u edit.py \
        --seq_encoder ${seq_encoder} \
        --batch_sz ${batch_sz} \
        --seed ${seed} --save_prefix "${edit}_seed=${seed}_" \
-       --edit --best --save_preds \
-       --resume ${ckpt}
+       --best --save_preds \
+       --resume ${ckpt} --edit
 ```
 How to use each flag (in addition to the flags for training):
 - Use the `--save_preds` flag (boolean) to save the model predictions

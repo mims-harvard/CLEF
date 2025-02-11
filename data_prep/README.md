@@ -2,7 +2,7 @@
 
 ## Cellular reprogramming experiments
 
-To process cellular reprogramming experiments, please use the script `cell_data_process.py`. The script is split into two steps: (1) Processing the raw trajectories and (2) Splitting the trajectories into train, validation, and test sets.
+To process the datasets of cellular reprogramming experiments, please use the script `cell_data_process.py`. The script is split into two steps: (1) Processing the raw trajectories and (2) Splitting the trajectories into train, validation, and test sets.
 
 Example commands are provided in `run_cell_process.sh`
 
@@ -14,7 +14,7 @@ The final outputs of the script are (i.e., directly use for model):
 
 ## Patient routine lab tests
 
-To process patient routine lab tests, please use the script `data_process.py`. The script is split into two steps: (1) Processing the raw electronic health records data, such as identifying the most common lab tests, and (2) Splitting the trajectories into train, validation, and test sets.
+To generate the datasets of patient routine lab tests from raw electronic health records (EHR), please use the script `data_process.py`. The script is split into two steps: (1) Processing the raw EHR data, such as identifying the most common lab tests, and (2) Splitting the trajectories into train, validation, and test sets.
 
 Example commands are provided in `run_lab_process.sh`
 

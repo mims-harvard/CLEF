@@ -153,53 +153,25 @@ def main():
                                                  args.output_dir + args.save_prefix, args.save_concepts, time_skip = args.time_skip)
   print(best_model_dict)
 
-  if not hparams["counterfactual"]:
+  # Test
+  print("Starting inference...")
+  test_loss, all_test_concepts, all_test_preds, test_metrics = test(hparams["batch_sz"], hparams["split"],
+                                                                    train_loader, test_loader, action_embs,
+                                                                    best_model_dict["best_model"], 
+                                                                    hparams["temporal_len"],
+                                                                    loss, con_loss,
+                                                                    args.save_concepts, args.save_preds, args.time_skip)
+  
+  # Save patient concepts
+  if args.save_concepts:
+    print("Saving concepts...")
+    save_model_concepts(all_test_concepts, args.output_dir + args.save_prefix + ("pt_concepts_split=%s_temporal=%d" % (hparams["split"], hparams["temporal_len"])))
+  
+  # Save predictions
+  if args.save_preds:
+    print("Saving predictions...")
+    save_model_preds(all_test_preds, args.output_dir + args.save_prefix + ("model_preds_split=%s_temporal=%d" % (hparams["split"], hparams["temporal_len"])))
 
-    # Test
-    print("Starting inference...")
-    test_loss, all_test_concepts, all_test_preds, test_metrics = test(hparams["batch_sz"], hparams["split"],
-                                                                         train_loader, test_loader, action_embs,
-                                                                         best_model_dict["best_model"], 
-                                                                         hparams["temporal_len"],
-                                                                         loss, con_loss,
-                                                                         args.save_concepts, args.save_preds, args.time_skip)
-    
-    # Save patient concepts
-    if args.save_concepts:
-      print("Saving concepts...")
-      save_model_concepts(all_test_concepts, args.output_dir + args.save_prefix + ("pt_concepts_split=%s_temporal=%d" % (hparams["split"], hparams["temporal_len"])))
-    
-    # Save predictions
-    if args.save_preds:
-      print("Saving predictions...")
-      save_model_preds(all_test_preds, args.output_dir + args.save_prefix + ("model_preds_split=%s_temporal=%d" % (hparams["split"], hparams["temporal_len"])))
-
-  else:
-    
-    # Counterfactual generation
-    print("Starting counterfactual generation...")
-    
-    cf_data = test_loader[0]
-    for cf_type in cf_data["cf_type"].unique():
-      cf_type_data = cf_data[cf_data["cf_type"] == cf_type]
-      if cf_type != "original": cf_type_data["action"] = cf_type_data["cf_action"]
-      print(cf_type_data)
-      cf_type_loader = [cf_type_data, None]
-      cf_loss, cf_concepts, cf_preds, cf_metrics = test(hparams["batch_sz"], hparams["split"],
-                                                           [], cf_type_loader, action_embs,
-                                                           best_model_dict["best_model"], 
-                                                           hparams["temporal_len"],
-                                                           loss, con_loss,
-                                                           args.save_concepts, True, args.time_skip)
-
-      # Save counterfactual patient concepts
-      if args.save_concepts:
-        print("Saving counterfactual concepts...")
-        save_model_concepts(cf_concepts, args.output_dir + args.save_prefix + ("pt_concepts_cf=%s" % cf_type))
-      
-      # Save counterfactual predictions
-      print("Saving counterfactual predictions...")
-      save_model_preds(cf_preds, args.output_dir + args.save_prefix + ("model_preds_cf=%s" % cf_type))
   
   print("Finished.")
 

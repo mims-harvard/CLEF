@@ -34,3 +34,18 @@ python -u train.py \
 How to use each flag (in addition to the flags for training):
 - Use the `--save_preds` flag (boolean) to save the model predictions
 - Use the `--resume` flag to specify the model checkpoint with which to run inference
+
+
+## Edit
+
+```
+python -u edit.py \
+       --data_type ${data_type} --data_dir ${data_dir} --split ${split} \
+       --seq_encoder ${seq_encoder} \
+       --batch_sz ${batch_sz} \
+       --seed ${seed} --save_prefix "${edit}_seed=${seed}_" \
+       --edit --best --save_preds \
+       --resume ${ckpt}
+```
+How to use each flag (in addition to the flags for inference):
+- Use the `--edit` flag (boolean) to run editing

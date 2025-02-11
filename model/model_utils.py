@@ -56,7 +56,6 @@ def parse_args():
   parser.add_argument("--data_dir", type=str, default=("%sdata/MIMIC-IV/" % PROJECT_DIR), help="Directory to processed EHR data")
   parser.add_argument("--split", type=str, default="patient", choices=["patient", "time", "state"], help="Split data")
   parser.add_argument("--spectra", type=str, default="", help="SPECTRA parameter (or empty string if not using SPECTRA)")
-  parser.add_argument("--counterfactual", default=False, action="store_true", help="Generate counterfactual predictions")
   parser.add_argument("--edit", default=False, action="store_true", help="Generate edit counterfactual predictions")
   parser.add_argument("--time_skip", default=False, action="store_true", help="Predict immediate next time step t+1 (i.e., no skip; False) or future t+T (i.e., skip; True)")
   parser.add_argument("--output_dir", type=str, default=("%sresults/" % PROJECT_DIR), help="Output directory")
@@ -105,7 +104,6 @@ def get_hparams(args):
               "concept_ones": args.concept_ones,
               "split": args.split,
               "spectra": args.spectra,
-              "counterfactual": args.counterfactual,
               "edit": args.edit
             }
   
@@ -227,7 +225,7 @@ def get_hparams(args):
 
 
 def check_do_train(args, hparams):
-  if args.inference or args.counterfactual or args.edit: return False
+  if args.inference or args.edit: return False
   if hparams["concept_ones"]: return False
   return True
 
@@ -364,18 +362,14 @@ def get_split_data(all_data, get_type, split_dict):
 
 def load_split_data(data_dir, hparams, data_type):
 
-  if hparams["counterfactual"]:
-    data_prefix = "counterfactual_data"
-    split_prefix = None
+  if data_type == "patient":
+    data_prefix = "filtered_lab_code_data"
+    split_prefix = "filtered_lab_data"
+  elif data_type == "cell":
+    data_prefix = "filtered_data"
+    split_prefix = "filtered_data"
   else:
-    if data_type == "patient":
-      data_prefix = "filtered_lab_code_data"
-      split_prefix = "filtered_lab_data"
-    elif data_type == "cell":
-      data_prefix = "filtered_data"
-      split_prefix = "filtered_data"
-    else:
-      raise NotImplementedError
+    raise NotImplementedError
 
   # Load processed data
   data = pd.read_csv(data_dir + data_prefix + ".csv", sep = "\t") # filtered_lab_data
@@ -391,18 +385,14 @@ def load_split_data(data_dir, hparams, data_type):
     hparams["condition_sz"] = 1
     if data_type == "patient" and "action" not in data.columns: data["action"] = -1
 
-  if hparams["counterfactual"] or hparams["edit"]:
+  if hparams["edit"]:
 
-    # Get data splits
-    if hparams["counterfactual"]:
-      data["cf_type"] = data["cf_type"].fillna("original")
-    else:
-      # Load matched data
-      matched_pt_f = data_dir + "matched_T1D_patients.json"
-      print("LOADING MATCHED PATIENTS FROM %s" % matched_pt_f)
-      matches = json.load(open(matched_pt_f, "r"))
-      print("Number of matches:", len(matches))
-      data = data[data["subject_id"].astype(str).isin(list(matches.keys()))]
+    # Load matched data
+    matched_pt_f = data_dir + "matched_T1D_patients.json"
+    print("LOADING MATCHED PATIENTS FROM %s" % matched_pt_f)
+    matches = json.load(open(matched_pt_f, "r"))
+    print("Number of matches:", len(matches))
+    data = data[data["subject_id"].astype(str).isin(list(matches.keys()))]
   
     train_loader = [[], None]
     val_loader = [[], None]

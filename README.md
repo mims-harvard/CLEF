@@ -43,7 +43,7 @@ conda activate clef_env
 ## Additional Resources
 
 - [Paper](https://arxiv.org/abs/2502.03569)
-- [Project Website (Coming Soon)]()
+- [Project Website](https://zitniklab.hms.harvard.edu/projects/CLEF/)
 
 ```
 @article{li2025clef,

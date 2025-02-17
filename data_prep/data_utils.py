@@ -127,7 +127,7 @@ def load_raw_data(data_dir, data_source = "MIMIC"):
 
 def load_codes_data(data_dir, data_source, meta_df, clean_data):
 
-  _, cm_rev_mapping, _ = read_icd_maps("data/icd_mappings/")
+  _, cm_rev_mapping = read_icd_maps("data/icd_mappings/")
   
   def map_icd_codes(emar, icd_col):
     code_mapping = dict()

@@ -1,11 +1,15 @@
-# CLEF: Controllable Sequence Editing for Counterfactual Generation
+# CLEF: Controllable Sequence Editing for Biological and Clinical Trajectories
 
 **Authors**:
 - [Michelle M. Li](http://michellemli.com)
 - [Kevin Li](https://www.linkedin.com/in/kevinli5941/)
 - [Yasha Ektefaie](https://www.yashaektefaie.com)
+- [Ying Jin](https://ying531.github.io)
+- [Yepeng Huang](https://yepeng.notion.site)
 - [Shvat Messica](https://www.linkedin.com/in/shvatmessica/)
+- [Tianxi Cai](https://celehs.hms.harvard.edu)
 - [Marinka Zitnik](http://zitniklab.hms.harvard.edu)
+
 
 ## Overview of CLEF
 

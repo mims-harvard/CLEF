@@ -50,9 +50,9 @@ conda activate clef_env
 - [Project Website](https://zitniklab.hms.harvard.edu/projects/CLEF/)
 
 ```
-@article{li2025clef,
-  title={Controllable Sequence Editing for Counterfactual Generation},
-  author={Li, Michelle M and Li, Kevin and Ektefaie, Yasha and Messica, Shvat and Zitnik, Marinka},
+@article{li2026clef,
+  title={Controllable Sequence Editing for Biological and Clinical Trajectories},
+  author={Li, Michelle M and Li, Kevin and Ektefaie, Yasha and Jin, Ying and Huang, Yepeng and Messica, Shvat and Cai, Tianxi and Zitnik, Marinka},
   journal={arXiv:2502.03569},
   year={2025}
 }

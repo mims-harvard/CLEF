@@ -1,11 +1,15 @@
-# CLEF: Controllable Sequence Editing for Counterfactual Generation
+# CLEF: Controllable Sequence Editing for Biological and Clinical Trajectories
 
 **Authors**:
 - [Michelle M. Li](http://michellemli.com)
 - [Kevin Li](https://www.linkedin.com/in/kevinli5941/)
 - [Yasha Ektefaie](https://www.yashaektefaie.com)
+- [Ying Jin](https://ying531.github.io)
+- [Yepeng Huang](https://yepeng.notion.site)
 - [Shvat Messica](https://www.linkedin.com/in/shvatmessica/)
+- [Tianxi Cai](https://celehs.hms.harvard.edu)
 - [Marinka Zitnik](http://zitniklab.hms.harvard.edu)
+
 
 ## Overview of CLEF
 
@@ -42,13 +46,14 @@ conda activate clef_env
 
 ## Additional Resources
 
+- [Data](https://doi.org/10.6084/m9.figshare.31580707)
 - [Paper](https://arxiv.org/abs/2502.03569)
 - [Project Website](https://zitniklab.hms.harvard.edu/projects/CLEF/)
 
 ```
-@article{li2025clef,
-  title={Controllable Sequence Editing for Counterfactual Generation},
-  author={Li, Michelle M and Li, Kevin and Ektefaie, Yasha and Messica, Shvat and Zitnik, Marinka},
+@article{li2026clef,
+  title={Controllable Sequence Editing for Biological and Clinical Trajectories},
+  author={Li, Michelle M and Li, Kevin and Ektefaie, Yasha and Jin, Ying and Huang, Yepeng and Messica, Shvat and Cai, Tianxi and Zitnik, Marinka},
   journal={arXiv:2502.03569},
   year={2025}
 }

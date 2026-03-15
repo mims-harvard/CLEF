@@ -1,3 +1,4 @@
+# GitHub repo for xLSTM: https://github.com/NX-AI/xlstm
 
 # Set up environment (run this before running the script)
 #   conda env create -n xlstm -f environment_pt220cu121.yaml

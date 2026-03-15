@@ -10,6 +10,8 @@
 import os
 import torch
 
+import sys
+sys.path.insert(0, '../') # Add our own scripts
 from xlstm import xLSTMBlockStack, xLSTMBlockStackConfig, mLSTMBlockConfig, mLSTMLayerConfig, sLSTMBlockConfig, sLSTMLayerConfig, FeedForwardConfig
 
 

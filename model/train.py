@@ -117,7 +117,7 @@ def main():
   # Initialize model
   print("Initializing model...")
   print(hparams_raw)
-  wandb.init(config = hparams_raw, project = "clef-icml", entity = "sc-drug")
+  wandb.init(config = hparams_raw, project = "clef_project", entity = "clef_entity")
   hparams = wandb.config
   do_train = check_do_train(args, hparams)
   loss, con_loss = get_loss_func(hparams["loss"])

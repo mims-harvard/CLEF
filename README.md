@@ -35,7 +35,12 @@ git clone https://github.com/mims-harvard/CLEF
 cd CLEF
 ```
 
-### :two: Set Up Environment
+### :two: File and Folder Configurations
+Step 2a) Inside `CLEF/project_config.py`, change `PROJECT_DIR = [insert your own project directory path]`.
+
+Step 2b) Create an empty `CLEF/results` folder.
+
+### :three: Set Up Environment
 
 This codebase leverages Python, Pytorch, etc. To create an environment with all of the required packages, please ensure that [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) is installed and then execute the commands:
 
@@ -43,6 +48,28 @@ This codebase leverages Python, Pytorch, etc. To create an environment with all 
 conda env create -f environment.yml
 conda activate clef_env
 ```
+
+Please note that the environment file is for Linux environments and not compatible with macOS. If you're using a cluster, it's recommended to run `conda env create -f environment.yml` in an interactive node first before you submit your job script. Inside your job script, include the following before you run the training file:
+
+```
+source ~/.bashrc
+conda activate clef_env
+```
+
+### :four: Set Up Wandb
+Step 4a) Inside `CLEF/model/train.py`, replace the entity in the wandb.innit function to be your Wandb team name. 
+
+```
+wandb.init(config = hparams_raw, project = "clef_project", entity = "[insert your Wandb team name]")
+```
+
+To find your Wandb team name: log into wandb &rarr; go to user settings &rarr; look under 'Default Team' to find your team location.
+
+Step 4b) There are two common ways to log into wandb
+1. Run `wandb login` in your terminal 
+2. Inside your SLURM job script, include `export WANDB_API_KEY = [your API key]` before you run the training file. 
+
+
 
 ## Additional Resources
 
